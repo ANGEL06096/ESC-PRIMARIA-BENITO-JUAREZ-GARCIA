@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestro Plantel | Primaria Lic. Benito Juárez García</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --azul-cielo: #AEEEEE;
+            --azul-marino: #1A4F7C;
+            --blanco: #ffffff;
+            --texto: #333;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+
+        body {
+            background-color: var(--azul-cielo);
+            color: var(--texto);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* NAVEGACIÓN */
+        .navbar {
+            background-color: var(--azul-marino);
+            color: var(--blanco);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-links { display: flex; list-style: none; gap: 20px; }
+        .nav-links a { color: var(--blanco); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+
+        /* CONTENEDOR */
+        .container {
+            flex: 1;
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .card {
+            background: var(--blanco);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        h2 { color: var(--azul-marino); text-align: center; margin-bottom: 25px; }
+
+        /* --- ESTILO DE LOS DESPLEGABLES (ACORDEÓN) --- */
+        details {
+            background: #f1f8ff;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #d0e1f9;
+        }
+
+        summary {
+            padding: 15px;
+            font-weight: bold;
+            color: var(--azul-marino);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::after { content: '▼'; font-size: 0.8rem; }
+        details[open] summary::after { content: '▲'; }
+
+        /* TABLAS DE HORARIOS */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #eee;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        th { background-color: var(--azul-marino); color: white; }
+
+        /* --- SECCIÓN DE SERVICIOS --- */
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .servicio-item {
+            background: var(--blanco);
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .servicio-item:hover { transform: translateY(-5px); }
+
+        .servicio-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .servicio-info { padding: 15px; }
+        .servicio-info h4 { color: var(--azul-marino); margin-bottom: 8px; }
+
+        footer {
+            background-color: var(--azul-marino);
+            color: var(--blanco);
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        /* --- FOOTER PROFESIONAL IGUAL AL DE PLANTEL --- */
+.main-footer {
+    background-color: var(--azul-marino);
+    color: var(--blanco);
+    padding: 50px 5% 20px 5%;
+    margin-top: 50px;
+    font-size: 0.9rem;
+    text-align: left; /* Asegura alineación correcta de columnas */
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section h3 {
+    color: var(--azul-cielo);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--azul-cielo);
+    padding-left: 10px;
+    text-transform: uppercase;
+}
+
+.footer-section p {
+    margin: 12px 0;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-section i {
+    color: var(--azul-cielo);
+    width: 20px;
+    text-align: center;
+}
+
+.social-media {
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.social-icon {
+    color: white;
+    font-size: 2rem;
+    transition: 0.3s ease;
+    text-decoration: none;
+}
+
+.fa-facebook:hover { color: #1877F2; transform: translateY(-5px); }
+.fa-youtube:hover { color: #FF0000; transform: translateY(-5px); }
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .footer-section { text-align: center; }
+    .footer-section h3 { border-left: none; padding-left: 0; }
+    .footer-section p { justify-content: center; }
+    .social-media { justify-content: center; }
+}
+  
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">🏫 PRIMARIA LIC. BENITO JUÁREZ GARCÍA</div>
+        <ul class="nav-links">
+            <li><a href="index.html">INICIO</a></li>
+            <li><a href="plantel.html">PLANTEL</a></li>
+            <li><a href="galeria.html">GALERÍA</a></li>
+            <li><a href="nosotros.html">NOSOTROS</a></li>
+            <li><a href="contacto.html">DUDAS</a></li>
+        </ul>
+    </nav>
+    <main class="container">
+    <section class="card">
+        <h2>⏰ Horarios Escolares Ciclo 2026</h2>
+        <p style="text-align: center; margin-bottom: 20px;">Horario Oficial: 08:00 - 13:00 hrs</p>
+
+        <details>
+            <summary>Primer Grado</summary>
+            <table>
+                <tr><th>Hora</th><th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th></tr>
+                <tr><td>8:00 - 9:40</td><td>Lenguajes (Español)</td><td>Pensamiento Científico</td><td>Lenguajes (Español)</td><td>Pensamiento Científico</td><td>Lenguajes (Español)</td></tr>
+                <tr><td>9:40 - 11:00</td><td>Conocimiento del Medio</td><td>Artes</td><td>Ética y Naturaleza</td><td>Inglés</td><td>Educ. Física</td></tr>
+                <tr><td colspan="6" style="background: #f1f8ff; font-weight: bold;">🍎 RECESO (11:00 - 11:30)</td></tr>
+                <tr><td>11:30 - 13:00</td><td>Socioemocional</td><td>Vida Saludable</td><td>Inglés</td><td>Cálculo Mental</td><td>Proyectos Aula</td></tr>
+            </table>
+        </details>
+
+        <details>
+            <summary>Segundo Grado</summary>
+            <table>
+                <tr><th>Hora</th><th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th></tr>
+                <tr><td>8:00 - 9:40</td><td>Pensamiento Científico</td><td>Lenguajes (Español)</td><td>Pensamiento Científico</td><td>Lenguajes (Español)</td><td>Artes</td></tr>
+                <tr><td>9:40 - 11:00</td><td>Educ. Física</td><td>Inglés</td><td>Vida Saludable</td><td>Conocimiento del Medio</td><td>Inglés</td></tr>
+                <tr><td colspan="6" style="background: #f1f8ff; font-weight: bold;">🍎 RECESO (11:00 - 11:30)</td></tr>
+                <tr><td>11:30 - 13:00</td><td>Lenguajes</td><td>Ética y Naturaleza</td><td>Socioemocional</td><td>Ortografía</td><td>Salida</td></tr>
+            </table>
+        </details>
+
+        <details>
+            <summary>Tercer Grado</summary>
+            <table>
+                <tr><th>Hora</th><th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th></tr>
+                <tr><td>8:00 - 9:40</td><td>Lenguajes</td><td>Matemáticas</td><td>La Entidad Donde Vivo</td><td>Matemáticas</td><td>Lenguajes</td></tr>
+                <tr><td>9:40 - 11:00</td><td>Ciencias Naturales</td><td>Historia</td><td>Geografía</td><td>Ciencias Naturales</td><td>Artes</td></tr>
+                <tr><td colspan="6" style="background: #f1f8ff; font-weight: bold;">🍎 RECESO (11:00 - 11:30)</td></tr>
+                <tr><td>11:30 - 13:00</td><td>Inglés</td><td>Educ. Física</td><td>Socioemocional</td><td>Cívica y Ética</td><td>Salida</td></tr>
+            </table>
+        </details>
+
+        <details>
+            <summary>Cuarto Grado</summary>
+            <table>
+                <tr><th>Hora</th><th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th></tr>
+                <tr><td>8:00 - 9:40</td><td>Matemáticas</td><td>Lenguajes</td><td>Matemáticas</td><td>Lenguajes</td><td>Matemáticas</td></tr>
+                <tr><td>9:40 - 11:00</td><td>Historia</td><td>Geografía</td><td>Ciencias Naturales</td><td>Cívica y Ética</td><td>Geografía</td></tr>
+                <tr><td colspan="6" style="background: #f1f8ff; font-weight: bold;">🍎 RECESO (11:00 - 11:30)</td></tr>
+                <tr><td>11:30 - 13:00</td><td>Educ. Física</td><td>Artes</td><td>Inglés</td><td>Vida Saludable</td><td>Salida</td></tr>
+            </table>
+        </details>
+
+        <details>
+            <summary>Quinto Grado</summary>
+            <table>
+                <tr><th>Hora</th><th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th></tr>
+                <tr><td>8:00 - 9:40</td><td>Matemáticas Avanzadas</td><td>Español (Lenguajes)</td><td>Ciencias Naturales</td><td>Español (Lenguajes)</td><td>Historia</td></tr>
+                <tr><td>9:40 - 11:00</td><td>Geografía Mundial</td><td>Historia de México</td><td>Matemáticas</td><td>Cívica y Ética</td><td>Ciencias Naturales</td></tr>
+                <tr><td colspan="6" style="background: #f1f8ff; font-weight: bold;">🍎 RECESO (11:00 - 11:30)</td></tr>
+                <tr><td>11:30 - 13:00</td><td>Artes</td><td>Inglés</td><td>Educ. Física</td><td>Socioemocional</td><td>Salida</td></tr>
+            </table>
+        </details>
+
+        <details>
+            <summary>Sexto Grado</summary>
+            <table>
+                <tr><th>Hora</th><th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th></tr>
+                <tr><td>8:00 - 9:40</td><td>Lenguajes (Ensayo)</td><td>Matemáticas (Álgebra)</td><td>Lenguajes</td><td>Matemáticas</td><td>Proyectos</td></tr>
+                <tr><td>9:40 - 11:00</td><td>Ciencias y Tecnología</td><td>Historia</td><td>Geografía</td><td>Cívica y Ética</td><td>Ciencias</td></tr>
+                <tr><td colspan="6" style="background: #f1f8ff; font-weight: bold;">🍎 RECESO (11:00 - 11:30)</td></tr>
+                <tr><td>11:30 - 13:00</td><td>Inglés</td><td>Socioemocional</td><td>Educ. Física</td><td>Artes</td><td>Salida</td></tr>
+            </table>
+        </details>
+    </section>
+
+    <h2>🛠️ Nuestros Servicios</h2>
+    <div class="servicios-grid">
+        <div class="servicio-item">
+            <img src="C:\Users\gabri\Downloads\desayunos.jpg" alt="Desayunos">
+            <div class="servicio-info">
+                <h4>Desayunos Escolares</h4>
+                <p>Contamos con programa de alimentación balanceada para todos nuestros alumnos.</p>
+            </div>
+        </div>
+
+        <div class="servicio-item">
+            <img src="C:\Users\gabri\Downloads\biblioteca.jpg" alt="Biblioteca">
+            <div class="servicio-info">
+                <h4>Biblioteca Escolar</h4>
+                <p>Un acervo completo para fomentar el hábito de la lectura y la investigación.</p>
+            </div>
+        </div>
+
+        <div class="servicio-item">
+            <img src="C:\Users\gabri\Downloads\computo.jpg" alt="Aula de Medios">
+            <div class="servicio-info">
+                <h4>Aula de Medios</h4>
+                <p>Equipada con computadoras e internet para el desarrollo de habilidades digitales.</p>
+            </div>
+        </div>
+    </div>
+</main>
+    <footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>📍 Ubicación</h3>
+            <p>Calle Benito Juárez 1, Col. Asentamiento Humano.</p>
+            <p>San Antonio Arroyo Zarco, México. CP 50373.</p>
+            <p><strong>CCT:</strong> 15FIZ2238U</p>
+        </div>
+
+        <div class="footer-section">
+            <h3>📞 Atención</h3>
+            <p><i class="fas fa-phone"></i> 7121539887</p>
+            <p><i class="fas fa-envelope"></i> migcei@hotmail.com</p>
+            <p><i class="fas fa-user-tie"></i> Directora: Maria Magdalena Porras Salas</p>
+        </div>
+
+        <div class="footer-section">
+            <h3>🌐 Comunidad</h3>
+            <p>Síguenos para avisos y eventos oficiales:</p>
+            <div class="social-media">
+                <a href="https://facebook.com" target="_blank" class="social-icon">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://youtube.com" target="_blank" class="social-icon">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 Escuela Primaria Federal Matutina "Lic. Benito Juárez García". Todos los derechos reservados.</p>
+        <p>Fundada el 02 de Septiembre de 1987.</p>
+    </div>
+</footer>
+
+</body>
+</html>

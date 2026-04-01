@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería Pro | Primaria Lic. Benito Juárez García</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --azul-cielo: #E0F7FA;
+            --azul-marino: #1A4F7C;
+            --blanco: #ffffff;
+            --dorado: #FFD700;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', 'Segoe UI', sans-serif; }
+
+        body {
+            background: linear-gradient(135deg, var(--azul-cielo) 0%, #B2EBF2 100%);
+            min-height: 100vh;
+        }
+
+        /* --- NAVEGACIÓN --- */
+        .navbar {
+            background-color: var(--azul-marino);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .nav-links { display: flex; list-style: none; gap: 25px; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover { color: var(--azul-cielo); }
+
+        /* --- ANIMACIÓN ESPECTACULAR DE ENTRADA --- */
+        .container {
+            max-width: 1100px;
+            margin: 50px auto;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: revealPage 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        @keyframes revealPage {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 { 
+            color: var(--azul-marino); 
+            font-size: 2.5rem; 
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+        }
+
+        /* --- EL CARRUSEL PROFESIONAL --- */
+        .carousel-container {
+            position: relative;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px); /* Efecto Glassmorphism */
+            padding: 30px;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.8);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .viewfinder {
+            width: 750px;
+            height: 480px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 8px solid white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        #main-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Efecto de cambio de foto */
+        .foto-cambiando {
+            opacity: 0;
+            transform: scale(1.1);
+        }
+
+        /* BOTONES DE LUJO */
+        .btn-pro {
+            background: var(--azul-marino);
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.8rem;
+            transition: all 0.4s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 15px rgba(26, 79, 124, 0.3);
+        }
+
+        .btn-pro:hover {
+            transform: scale(1.15) rotate(5deg);
+            background: #2369a3;
+            box-shadow: 0 12px 20px rgba(26, 79, 124, 0.4);
+        }
+
+        .btn-pro:active { transform: scale(0.9); }
+
+        .counter {
+            margin-top: 25px;
+            font-size: 1.2rem;
+            color: var(--azul-marino);
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        footer {
+            background: var(--azul-marino);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            margin-top: auto;
+        }
+        /* --- FOOTER PROFESIONAL IGUAL AL DE PLANTEL --- */
+.main-footer {
+    background-color: var(--azul-marino);
+    color: var(--blanco);
+    padding: 50px 5% 20px 5%;
+    margin-top: 50px;
+    font-size: 0.9rem;
+    text-align: left; /* Asegura alineación correcta de columnas */
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section h3 {
+    color: var(--azul-cielo);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--azul-cielo);
+    padding-left: 10px;
+    text-transform: uppercase;
+}
+
+.footer-section p {
+    margin: 12px 0;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-section i {
+    color: var(--azul-cielo);
+    width: 20px;
+    text-align: center;
+}
+
+.social-media {
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.social-icon {
+    color: white;
+    font-size: 2rem;
+    transition: 0.3s ease;
+    text-decoration: none;
+}
+
+.fa-facebook:hover { color: #1877F2; transform: translateY(-5px); }
+.fa-youtube:hover { color: #FF0000; transform: translateY(-5px); }
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .footer-section { text-align: center; }
+    .footer-section h3 { border-left: none; padding-left: 0; }
+    .footer-section p { justify-content: center; }
+    .social-media { justify-content: center; }
+}
+    
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo" style="font-weight: 800; font-size: 1.2rem;">🏫 BENITO JUÁREZ GARCÍA</div>
+        <ul class="nav-links">
+            <li><a href="index.html">INICIO</a></li>
+            <li><a href="plantel.html">PLANTEL</a></li>
+            <li><a href="galeria.html">GALERÍA</a></li>
+            <li><a href="nosotros.html">NOSOTROS</a></li>
+            <li><a href="contacto.html">DUDAS</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <h2>Nuestro Orgullo Escolar</h2>
+        <p>Explora los mejores momentos de nuestra institución</p>
+
+        <div class="carousel-container">
+            <button class="btn-pro" onclick="move(-1)">&#10094;</button>
+            
+            <div class="viewfinder">
+                <img id="main-photo" src="C:\Users\gabri\Downloads\1770486270837.jpg" alt="Escuela">
+            </div>
+
+            <button class="btn-pro" onclick="move(1)">&#10095;</button>
+        </div>
+
+        <div class="counter">IMAGEN <span id="idx">1</span> / 10</div>
+    </main>
+    <footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>📍 Ubicación</h3>
+            <p>Calle Benito Juárez 1, Col. Asentamiento Humano.</p>
+            <p>San Antonio Arroyo Zarco, México. CP 50373.</p>
+            <p><strong>CCT:</strong> 15FIZ2238U</p>
+        </div>
+
+        <div class="footer-section">
+            <h3>📞 Atención</h3>
+            <p><i class="fas fa-phone"></i> 7121539887</p>
+            <p><i class="fas fa-envelope"></i> migcei@hotmail.com</p>
+            <p><i class="fas fa-user-tie"></i> Directora: Maria Magdalena Porras Salas</p>
+        </div>
+
+        <div class="footer-section">
+            <h3>🌐 Comunidad</h3>
+            <p>Síguenos para avisos y eventos oficiales:</p>
+            <div class="social-media">
+                <a href="https://facebook.com" target="_blank" class="social-icon">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://youtube.com" target="_blank" class="social-icon">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 Escuela Primaria Federal Matutina "Lic. Benito Juárez García". Todos los derechos reservados.</p>
+        <p>Fundada el 02 de Septiembre de 1987.</p>
+    </div>
+</footer>
+    <script>
+        const pix = [
+            "C:/Users/gabri/Downloads/1770486270837.jpg",
+            "C:/Users/gabri/Downloads/1770486270818.jpg",
+            "C:/Users/gabri/Downloads/img3.jpg",
+            "C:/Users/gabri/Downloads/img4.jpg",
+            "C:/Users/gabri/Downloads/img5.jpg",
+            "C:/Users/gabri/Downloads/img6.jpg",
+            "C:/Users/gabri/Downloads/img7.jpg",
+            "C:/Users/gabri/Downloads/img8.jpg",
+            "C:/Users/gabri/Downloads/img9.jpg",
+            "C:/Users/gabri/Downloads/img10.jpg"
+        ];
+
+        let current = 0;
+        const photo = document.getElementById("main-photo");
+        const idxTxt = document.getElementById("idx");
+
+        function move(step) {
+            current += step;
+            if (current >= pix.length) current = 0;
+            if (current < 0) current = pix.length - 1;
+
+            // Animación Pro: Sale con zoom y opacidad
+            photo.classList.add("foto-cambiando");
+
+            setTimeout(() => {
+                photo.src = pix[current];
+                idxTxt.innerText = current + 1;
+                // Entra con suavidad
+                photo.classList.remove("foto-cambiando");
+            }, 300);
+        }
+    </script>
+</body>
+</html>

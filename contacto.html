@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dudas - PRIMARIA LIC: BENITO JUAREZ GARCIA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --azul-cielo: #AEEEEE;    /* Color del uniforme */
+            --azul-marino: #1A4F7C;   /* Color formal para navegación y footer */
+            --blanco: #ffffff;
+            --texto: #333;
+            --verde-boton: #2e7d32;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        /* --- LA SOLUCIÓN DEL FOOTER --- */
+        body {
+            background-color: var(--azul-cielo);
+            color: var(--texto);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Obliga al cuerpo a medir el 100% de la pantalla */
+        }
+
+        main.container {
+            flex: 1; /* Esto estira el contenido y empuja el footer al fondo */
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        /* --- NAVEGACIÓN --- */
+        .navbar {
+            background-color: var(--azul-marino);
+            color: var(--blanco);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .logo { font-weight: bold; font-size: 1.1rem; }
+
+        .nav-links { display: flex; list-style: none; gap: 20px; }
+
+        .nav-links a {
+            color: var(--blanco);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Bloqueo del botón DUDAS (página actual) */
+        #opcion5 { pointer-events: none; color: #a0c4ff; cursor: not-allowed; }
+
+        /* --- TARJETA DE DUDAS --- */
+        .contacto-card {
+            background: var(--blanco);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-top: 6px solid var(--azul-marino);
+        }
+
+        h2 { color: var(--azul-marino); text-align: center; margin-bottom: 10px; }
+
+        .instrucciones { text-align: center; color: #666; margin-bottom: 25px; font-size: 0.95rem; }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            background: #fdfdfd;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            padding: 15px;
+            font-size: 1rem;
+            resize: none;
+            margin-bottom: 20px;
+        }
+
+        textarea:focus { outline: none; border-color: var(--azul-marino); }
+
+        .btn-enviar {
+            background: var(--verde-boton);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            transition: 0.3s ease;
+        }
+
+        .btn-enviar:hover { background: #1b5e20; transform: translateY(-2px); }
+
+        /* --- RESPUESTA DEL ASISTENTE --- */
+        .respuesta-ia {
+            margin-top: 25px;
+            padding: 20px;
+            background: #e3f2fd;
+            border-left: 5px solid var(--azul-marino);
+            border-radius: 8px;
+            display: none;
+        }
+
+        /* --- FOOTER SIEMPRE ABAJO --- */
+        footer {
+            background-color: var(--azul-marino);
+            color: var(--blanco);
+            padding: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            width: 100%;
+        }
+
+        @media (max-width: 600px) {
+            .navbar { flex-direction: column; gap: 10px; }
+            .nav-links { gap: 10px; font-size: 0.75rem; }
+        }
+        /* --- FOOTER PROFESIONAL IGUAL AL DE PLANTEL --- */
+.main-footer {
+    background-color: var(--azul-marino);
+    color: var(--blanco);
+    padding: 50px 5% 20px 5%;
+    margin-top: 50px;
+    font-size: 0.9rem;
+    text-align: left; /* Asegura alineación correcta de columnas */
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section h3 {
+    color: var(--azul-cielo);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--azul-cielo);
+    padding-left: 10px;
+    text-transform: uppercase;
+}
+
+.footer-section p {
+    margin: 12px 0;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-section i {
+    color: var(--azul-cielo);
+    width: 20px;
+    text-align: center;
+}
+
+.social-media {
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.social-icon {
+    color: white;
+    font-size: 2rem;
+    transition: 0.3s ease;
+    text-decoration: none;
+}
+
+.fa-facebook:hover { color: #1877F2; transform: translateY(-5px); }
+.fa-youtube:hover { color: #FF0000; transform: translateY(-5px); }
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .footer-section { text-align: center; }
+    .footer-section h3 { border-left: none; padding-left: 0; }
+    .footer-section p { justify-content: center; }
+    .social-media { justify-content: center; }
+}
+details {
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+details[open] {
+    background: #fff;
+    border-left: 5px solid var(--azul-marino);
+}
+
+summary {
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--azul-marino);
+    outline: none;
+}
+
+details p {
+    margin-top: 10px;
+    color: #555;
+    line-height: 1.4;
+}
+ 
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">🏫 PRIMARIA LIC. BENITO JUÁREZ GARCÍA</div>
+        <ul class="nav-links">
+            <li><a href="index.html">INICIO</a></li>
+            <li><a href="plantel.html">PLANTEL</a></li>
+            <li><a href="galeria.html">GALERÍA</a></li>
+            <li><a href="nosotros.html">NOSOTROS</a></li>
+            <li><a href="contacto.html">DUDAS</a></li>
+        </ul>
+    </nav>
+    <main class="container">
+    <section class="card">
+        <h2>❓ Preguntas Frecuentes (FAQ)</h2>
+        <p style="text-align: center; margin-bottom: 20px;">Todo lo que necesitas saber sobre nuestra institución y el nuevo sistema digital.</p>
+
+        <h3 style="color: var(--azul-marino); margin-top: 20px;">💻 Sistema Digital y Proyectos</h3>
+        
+        <details>
+            <summary>¿Qué es el nuevo Sistema de Control Escolar?</summary>
+            <p>Es una plataforma interna desarrollada en Python y Flask para gestionar registros, calificaciones y datos de los alumnos de manera eficiente.</p>
+        </details>
+
+        <details>
+            <summary>¿En qué consiste la plataforma de 40 niveles?</summary>
+            <p>Es un sitio educativo interactivo donde los alumnos pueden aprender lógica de programación a través de 40 niveles de dificultad progresiva.</p>
+        </details>
+
+        <details>
+            <summary>¿El sistema guarda mi progreso en las lecciones?</summary>
+            <p>Sí, el sistema está diseñado para realizar un seguimiento del progreso de cada usuario a medida que avanza en los niveles.</p>
+        </details>
+
+        <details>
+            <summary>¿Puedo inscribirme en línea actualmente?</summary>
+            <p>No, el proceso de inscripción ahora se maneja de forma administrativa interna para asegurar la correcta validación de documentos.</p>
+        </details>
+
+        <details>
+            <summary>¿Cómo se verifican las calificaciones en el nuevo sistema?</summary>
+            <p>El sistema cuenta con un módulo de verificación automatizada donde los docentes registran y validan los promedios.</p>
+        </details>
+
+        <h3 style="color: var(--azul-marino); margin-top: 20px;">🏫 Información de la Institución</h3>
+
+        <details>
+            <summary>¿Quién es la Directora del plantel?</summary>
+            <p>La institución está a cargo de la Maestra Maria Magdalena Porras Salas.</p>
+        </details>
+
+        <details>
+            <summary>¿Cuál es la misión de la escuela?</summary>
+            <p>Nuestra misión es brindar una formación integral basada en excelencia, inclusión y valores éticos para potenciar habilidades académicas y sociales.</p>
+        </details>
+
+        <details>
+            <summary>¿Cuándo se fundó la Primaria?</summary>
+            <p>La escuela fue fundada oficialmente el 02 de Septiembre de 1987.</p>
+        </details>
+
+        <details>
+            <summary>¿Cuál es la Clave de Centro de Trabajo (CCT)?</summary>
+            <p>Nuestra clave oficial ante la SEP es 15FIZ2238U.</p>
+        </details>
+
+        <details>
+            <summary>¿Cuál es el horario de clases?</summary>
+            <p>La entrada es a las 8:00 AM y la salida a las 1:00 PM (13:00 hrs).</p>
+        </details>
+
+        <details>
+            <summary>¿A qué hora es el receso escolar?</summary>
+            <p>El tiempo de descanso para los alumnos es de 11:00 AM a 11:30 AM.</p>
+        </details>
+
+        <h3 style="color: var(--azul-marino); margin-top: 20px;">📝 Trámites y Servicios</h3>
+
+        <details>
+            <summary>¿Qué documentos se necesitan para la inscripción física?</summary>
+            <p>Acta de nacimiento, CURP, comprobante de domicilio e identificación oficial del tutor.</p>
+        </details>
+
+        <details>
+            <summary>¿Cuándo es la entrega oficial de documentos para 2026?</summary>
+            <p>La fecha establecida es el 5 de agosto de 2026.</p>
+        </details>
+
+        <details>
+            <summary>¿Cómo es el uniforme oficial?</summary>
+            <p>Los lunes se usa el uniforme de gala. El resto de la semana se utiliza el uniforme deportivo (pants verde con blanco).</p>
+        </details>
+
+        <details>
+            <summary>¿La escuela cuenta con biblioteca?</summary>
+            <p>Sí, contamos con un acervo completo disponible para consulta e investigación de los alumnos.</p>
+        </details>
+
+        <details>
+            <summary>¿Hay aula de cómputo?</summary>
+            <p>Sí, contamos con el Aula de Medios equipada con computadoras e internet para el desarrollo de habilidades digitales.</p>
+        </details>
+
+        <details>
+            <summary>¿Existe programa de desayunos escolares?</summary>
+            <p>Contamos con un programa de alimentación balanceada para apoyar la nutrición de nuestros estudiantes.</p>
+        </details>
+
+        <details>
+            <summary>¿Qué materias llevan en primer grado?</summary>
+            <p>Llevan Lenguajes, Saberes y Pensamiento Científico, Ética, Naturaleza y Sociedades, y De lo Humano y lo Comunitario.</p>
+        </details>
+
+        <details>
+            <summary>¿Hay clases de Inglés?</summary>
+            <p>Sí, el idioma inglés está integrado en el campo formativo de Lenguajes.</p>
+        </details>
+
+        <details>
+            <summary>¿Dónde se ubica la escuela exactamente?</summary>
+            <p>Estamos en Calle Benito Juárez 1, Col. Asentamiento Humano, San Antonio Arroyo Zarco, México.</p>
+        </details>
+
+        <details>
+            <summary>¿Cuáles son las materias de quinto y sexto grado?</summary>
+            <p>Además de las básicas, se profundiza en Historia de México y el Mundo, Geografía avanzada y Ciencias Naturales.</p>
+        </details>
+
+        <details>
+            <summary>¿Qué es el Campo Formativo de "Lenguajes"?</summary>
+            <p>Engloba el estudio del Español, las Artes y el Inglés para mejorar la comunicación del alumno.</p>
+        </details>
+
+        <details>
+            <summary>¿Qué incluye "Saberes y Pensamiento Científico"?</summary>
+            <p>Es la integración de Matemáticas con las Ciencias Naturales bajo el nuevo plan de estudio.</p>
+        </details>
+
+        <details>
+            <summary>¿Cómo contactar a la escuela por teléfono?</summary>
+            <p>Puede comunicarse al teléfono 7121539887 para cualquier duda adicional.</p>
+        </details>
+
+        <details>
+            <summary>¿Cuál es el correo electrónico oficial?</summary>
+            <p>Nuestro contacto por correo es migcei@hotmail.com.</p>
+        </details>
+
+        <details>
+            <summary>¿Tienen redes sociales oficiales?</summary>
+            <p>Sí, puede encontrarnos en Facebook para avisos y eventos de la comunidad escolar.</p>
+        </details>
+
+        <details>
+            <summary>¿Cómo se maneja la Educación Socioemocional?</summary>
+            <p>Se trabaja dentro del campo "De lo Humano y lo Comunitario" para fortalecer los valores y el bienestar mental.</p>
+        </details>
+
+        <details>
+            <summary>¿Cuántos años cumple la escuela este 2026?</summary>
+            <p>En septiembre de 2026 la institución cumplirá 39 años de servicio educativo.</p>
+        </details>
+
+        <details>
+            <summary>¿El sistema informático es seguro?</summary>
+            <p>Sí, está construido con estándares modernos para proteger la información de los grados y registros escolares.</p>
+        </details>
+
+        <details>
+            <summary>¿Qué pasa si tengo una duda que no está aquí?</summary>
+            <p>Puedes escribirla en el chat de arriba o acudir personalmente a la dirección con la Maestra Maria Magdalena.</p>
+        </details>
+
+    </section>
+</main>
+    <footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>📍 Ubicación</h3>
+            <p>Calle Benito Juárez 1, Col. Asentamiento Humano.</p>
+            <p>San Antonio Arroyo Zarco, México. CP 50373.</p>
+            <p><strong>CCT:</strong> 15FIZ2238U</p>
+        </div>
+
+        <div class="footer-section">
+            <h3>📞 Atención</h3>
+            <p><i class="fas fa-phone"></i> 7121539887</p>
+            <p><i class="fas fa-envelope"></i> migcei@hotmail.com</p>
+            <p><i class="fas fa-user-tie"></i> Directora: Maria Magdalena Porras Salas</p>
+        </div>
+
+        <div class="footer-section">
+            <h3>🌐 Comunidad</h3>
+            <p>Síguenos para avisos y eventos oficiales:</p>
+            <div class="social-media">
+                <a href="https://facebook.com" target="_blank" class="social-icon">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://youtube.com" target="_blank" class="social-icon">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 Escuela Primaria Federal Matutina "Lic. Benito Juárez García". Todos los derechos reservados.</p>
+        <p>Fundada el 02 de Septiembre de 1987.</p>
+    </div>
+</footer>
+</body>
+</html>
