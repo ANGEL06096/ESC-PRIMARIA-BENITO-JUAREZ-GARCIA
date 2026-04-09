@@ -28,7 +28,7 @@
         min-height: 100vh;
     }
 
-    /* --- NAVEGACIÓN (IGUAL A LA QUE TE GUSTA) --- */
+    /* --- NAVEGACIÓN --- */
     .navbar {
         background-color: var(--azul-institucional);
         color: var(--blanco);
@@ -56,7 +56,6 @@
 
     .nav-links a:hover { color: var(--azul-claro); }
 
-    /* ESTO ES LO QUE HACE QUE EL MENÚ SE VEA BIEN EN CELULAR */
     @media (max-width: 600px) {
         .navbar { 
             flex-direction: column; 
@@ -77,20 +76,19 @@
         margin: 40px auto;
         padding: 0 20px;
         text-align: center;
-        flex: 1; /* Esto empuja el footer al fondo */
+        flex: 1;
     }
 
     .hero-card {
         background: #4E7CB7;
         border-radius: 15px;
-        padding: 40px;
+        padding: 40px 15px; /* Ajuste leve para móvil */
         box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         color: white;
     }
 
     h1 { font-size: 2.5rem; margin-bottom: 15px; }
 
-    /* Ajuste de título en móvil */
     @media (max-width: 600px) {
         h1 { font-size: 1.8rem; }
         .main-logo { width: 100% !important; max-width: 300px; }
@@ -103,19 +101,34 @@
         margin: 20px 0;
     }
 
+    /* --- GALERÍA ACTUALIZADA (SIEMPRE EN FILA) --- */
     .gallery-row {
         display: flex;
         justify-content: center;
-        gap: 15px;
+        gap: 10px; /* Espacio reducido para que quepan en celular */
         margin-top: 30px;
-        flex-wrap: wrap;
+        flex-wrap: nowrap; /* CRÍTICO: Evita que se pongan en torre */
+        width: 100%;
     }
 
     .gallery-row img {
+        width: 31%; /* Forzamos a que las 3 ocupen el ancho total */
+        height: 150px; /* Altura fija para que se vean parejas */
         border-radius: 10px;
-        border: 3px solid white;
+        border: 2px solid white;
         object-fit: cover;
         transition: 0.3s;
+    }
+
+    /* Ajuste de altura para laptop */
+    @media (min-width: 768px) {
+        .gallery-row img {
+            height: 180px;
+            width: 280px; /* En laptop recuperan su tamaño original */
+        }
+        .gallery-row {
+            gap: 15px;
+        }
     }
 
     .gallery-row img:hover { transform: scale(1.05); }
@@ -212,9 +225,9 @@
             <img src="benito.jpg" class="main-logo" alt="Escudo Escuela">
 
             <div class="gallery-row">
-                <img src="2.jpg" style="width:280px; height:180px;">
-                <img src="3.jpg" style="width:280px; height:180px;">
-                <img src="1.jpg" style="width:140px; height:180px;">
+                <img src="2.jpg">
+                <img src="3.jpg">
+                <img src="1.jpg">
             </div>
         </div>
     </main>
