@@ -229,6 +229,16 @@ details p {
     color: #555;
     line-height: 1.4;
 }
+.desactivado {
+    opacity: 0.5;
+}
+.social-text {
+    font-size: 11px; /* Letra pequeña como pediste */
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+    overflow: hidden; /* Corta el texto si es demasiado largo para el cel */
+    text-overflow: ellipsis; /* Pone "..." si el nombre es más largo que la pantalla */
+    max-width: 180px; /* Límite para que no empuje otros elementos */
+}
  
     </style>
 </head>
@@ -241,39 +251,33 @@ details p {
             <li><a href="plantel.html">PLANTEL</a></li>
             <li><a href="galeria.html">GALERÍA</a></li>
             <li><a href="nosotros.html">NOSOTROS</a></li>
-            <li><a href="contacto.html">DUDAS</a></li>
+            <li class="desactivado"><a href="contacto.html">DUDAS</a></li>
         </ul>
     </nav>
     <main class="container">
     <section class="card">
-        <h2>❓ Preguntas Frecuentes (FAQ)</h2>
-        <p style="text-align: center; margin-bottom: 20px;">Todo lo que necesitas saber sobre nuestra institución y el nuevo sistema digital.</p>
+        <h2>Preguntas Frecuentes</h2>
+        <p style="text-align: center; margin-bottom: 20px;">Todo lo que necesitas saber sobre nuestra institución.</p>
 
-        <h3 style="color: var(--azul-marino); margin-top: 20px;">💻 Sistema Digital y Proyectos</h3>
         
         <details>
-            <summary>¿Qué es el nuevo Sistema de Control Escolar?</summary>
-            <p>Es una plataforma interna desarrollada en Python y Flask para gestionar registros, calificaciones y datos de los alumnos de manera eficiente.</p>
+            <summary>¿Cuándo son las fechas de preinscripción?</summary>
+            <p>El periodo principal inicia el 10 de marzo de 2026.</p>
         </details>
 
         <details>
-            <summary>¿En qué consiste la plataforma de 40 niveles?</summary>
-            <p>Es un sitio educativo interactivo donde los alumnos pueden aprender lógica de programación a través de 40 niveles de dificultad progresiva.</p>
+            <summary>¿Qué tipo de alimentos venden en la cooperativa?</summary>
+            <p>Se priorizan alimentos saludables siguiendo las normas de nutrición escolar.</p>
         </details>
 
         <details>
-            <summary>¿El sistema guarda mi progreso en las lecciones?</summary>
-            <p>Sí, el sistema está diseñado para realizar un seguimiento del progreso de cada usuario a medida que avanza en los niveles.</p>
+            <summary>¿El trámite de inscripción tiene algún costo?</summary>
+            <p>La educación es gratuita, aunque la asociación de padres puede sugerir una aportación voluntaria.</p>
         </details>
 
         <details>
-            <summary>¿Puedo inscribirme en línea actualmente?</summary>
-            <p>No, el proceso de inscripción ahora se maneja de forma administrativa interna para asegurar la correcta validación de documentos.</p>
-        </details>
-
-        <details>
-            <summary>¿Cómo se verifican las calificaciones en el nuevo sistema?</summary>
-            <p>El sistema cuenta con un módulo de verificación automatizada donde los docentes registran y validan los promedios.</p>
+            <summary>¿Se permite el uso de celulares a los alumnos?</summary>
+            <p>No, está prohibido por reglamento para evitar distracciones y pérdida de equipos.</p>
         </details>
 
         <h3 style="color: var(--azul-marino); margin-top: 20px;">🏫 Información de la Institución</h3>
@@ -322,7 +326,7 @@ details p {
 
         <details>
             <summary>¿Cómo es el uniforme oficial?</summary>
-            <p>Los lunes se usa el uniforme de gala. El resto de la semana se utiliza el uniforme deportivo (pants verde con blanco).</p>
+            <p>Los lunes y viernes se usa el uniforme de gala. El resto de la semana se utiliza el uniforme deportivo.</p>
         </details>
 
         <details>
@@ -341,11 +345,6 @@ details p {
         </details>
 
         <details>
-            <summary>¿Qué materias llevan en primer grado?</summary>
-            <p>Llevan Lenguajes, Saberes y Pensamiento Científico, Ética, Naturaleza y Sociedades, y De lo Humano y lo Comunitario.</p>
-        </details>
-
-        <details>
             <summary>¿Hay clases de Inglés?</summary>
             <p>Sí, el idioma inglés está integrado en el campo formativo de Lenguajes.</p>
         </details>
@@ -355,20 +354,12 @@ details p {
             <p>Estamos en Calle Benito Juárez 1, Col. Asentamiento Humano, San Antonio Arroyo Zarco, México.</p>
         </details>
 
-        <details>
-            <summary>¿Cuáles son las materias de quinto y sexto grado?</summary>
-            <p>Además de las básicas, se profundiza en Historia de México y el Mundo, Geografía avanzada y Ciencias Naturales.</p>
-        </details>
 
         <details>
             <summary>¿Qué es el Campo Formativo de "Lenguajes"?</summary>
             <p>Engloba el estudio del Español, las Artes y el Inglés para mejorar la comunicación del alumno.</p>
         </details>
 
-        <details>
-            <summary>¿Qué incluye "Saberes y Pensamiento Científico"?</summary>
-            <p>Es la integración de Matemáticas con las Ciencias Naturales bajo el nuevo plan de estudio.</p>
-        </details>
 
         <details>
             <summary>¿Cómo contactar a la escuela por teléfono?</summary>
@@ -382,7 +373,7 @@ details p {
 
         <details>
             <summary>¿Tienen redes sociales oficiales?</summary>
-            <p>Sí, puede encontrarnos en Facebook para avisos y eventos de la comunidad escolar.</p>
+            <p>Sí, puede encontrarnos en Facebook y Youtube para avisos.</p>
         </details>
 
         <details>
@@ -432,13 +423,14 @@ details p {
                 </a>
                 <a href="https://youtube.com" target="_blank" class="social-icon">
                     <i class="fab fa-youtube"></i>
+                    
                 </a>
             </div>
         </div>
     </div>
 
     <div class="footer-bottom">
-        <p>&copy; 2026 Escuela Primaria Federal Matutina "Lic. Benito Juárez García". Todos los derechos reservados.</p>
+        <p>&copy; 2026 Escuela Primaria "Lic. Benito Juárez García". Todos los derechos reservados.</p>
         <p>Fundada el 02 de Septiembre de 1987.</p>
     </div>
 </footer>
