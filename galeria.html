@@ -316,6 +316,13 @@
                 photo.classList.remove("foto-cambiando");
             }, 300);
         }
+        
+        // Esto "despierta" a las imágenes antes de que el usuario les de click
+        pix.forEach(image => {
+            const img = new Image();
+            
+            img.src = image;
+});
     </script>
 </body>
 </html>
