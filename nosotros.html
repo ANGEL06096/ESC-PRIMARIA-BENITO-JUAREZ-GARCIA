@@ -238,6 +238,16 @@
             font-size: 0.8rem;
             opacity: 0.8;
         }
+        .desactivado {
+            opacity: 0.5;
+        }
+        .social-text {
+        font-size: 11px; /* Letra pequeña como pediste */
+        white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+        overflow: hidden; /* Corta el texto si es demasiado largo para el cel */
+        text-overflow: ellipsis; /* Pone "..." si el nombre es más largo que la pantalla */
+        max-width: 180px; /* Límite para que no empuje otros elementos */
+        }
     </style>
 </head>
 <body>
@@ -248,7 +258,7 @@
             <li><a href="index.html">INICIO</a></li>
             <li><a href="plantel.html">PLANTEL</a></li>
             <li><a href="galeria.html">GALERÍA</a></li>
-            <li><a href="nosotros.html">NOSOTROS</a></li>
+            <li class="desactivado"><a href="nosotros.html">NOSOTROS</a></li>
             <li><a href="contacto.html">DUDAS</a></li>
         </ul>
     </nav>
@@ -262,7 +272,7 @@
                     <p>Somos una institución educativa comprometida con la formación integral de niñas y niños, fundamentada en una educación de excelencia, inclusión y valores éticos. Nuestra misión es potenciar las habilidades académicas y sociales de los alumnos mediante un ambiente seguro y participativo, fomentando el diálogo entre docentes, padres de familia y estudiantes para consolidar una comunidad de aprendizaje que prepare a los educandos para enfrentar con éxito los retos de su entorno y del futuro.</p>
                 </div>
                 <div class="mision-img">
-                    <img src="https://escuelasmex.com/images/ccts/15EPR2657G/15EPR2657G_2574217.webp" class="img-responsiva" alt="Fachada">
+                    <img src="esc-3.jpg" class="img-responsiva" alt="Fachada">
                 </div>
             </div>
         </section>
@@ -290,7 +300,7 @@
             <h3>Nuestra Comunidad</h3>
             <div class="galeria">
                 <img src="C:\Users\gabri\Downloads\1770486270837.jpg" class="img-responsiva" alt="Actividad 1">
-                <img src="C:\Users\gabri\Downloads\1770486270818.jpg" class="img-responsiva" alt="Actividad 2">
+                <img src="esc-5.jpg" class="img-responsiva" alt="Actividad 2">
             </div>
         </section>
 
@@ -317,16 +327,18 @@
             <div class="social-media">
                 <a href="https://facebook.com" target="_blank" class="social-icon">
                     <i class="fab fa-facebook"></i>
+                    <span class="social-text">esc-lic-benito juarez garcia</span>
                 </a>
                 <a href="https://youtube.com" target="_blank" class="social-icon">
                     <i class="fab fa-youtube"></i>
+                    <span class="social-text">esc-lic-benito juarez garcia oficial</span>
                 </a>
             </div>
         </div>
     </div>
 
     <div class="footer-bottom">
-        <p>&copy; 2026 Escuela Primaria Federal Matutina "Lic. Benito Juárez García". Todos los derechos reservados.</p>
+        <p>&copy; 2026 Escuela Primaria "Lic. Benito Juárez García". Todos los derechos reservados.</p>
         <p>Fundada el 02 de Septiembre de 1987.</p>
     </div>
 </footer>
