@@ -202,6 +202,16 @@
         .footer-section p { justify-content: center; }
         .social-media { justify-content: center; }
     }
+    .desactivado {
+        opacity: 0.5;
+    }
+    .social-text {
+        font-size: 11px; /* Letra pequeña como pediste */
+        white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+        overflow: hidden; /* Corta el texto si es demasiado largo para el cel */
+        text-overflow: ellipsis; /* Pone "..." si el nombre es más largo que la pantalla */
+        max-width: 180px; /* Límite para que no empuje otros elementos */
+        }
 </style>
 </head>
 <body>
@@ -209,7 +219,7 @@
     <nav class="navbar">
         <div class="logo">🏫 PRIMARIA LIC. BENITO JUÁREZ GARCÍA</div>
         <ul class="nav-links">
-            <li><a href="index.html">INICIO</a></li>
+            <li class="desactivado"><a href="index.html">INICIO</a></li>
             <li><a href="plantel.html">PLANTEL</a></li>
             <li><a href="galeria.html">GALERÍA</a></li>
             <li><a href="nosotros.html">NOSOTROS</a></li>
@@ -225,9 +235,9 @@
             <img src="benito.jpg" class="main-logo" alt="Escudo Escuela">
 
             <div class="gallery-row">
-                <img src="2.jpg">
                 <img src="3.jpg">
-                <img src="1.jpg">
+                <img src="2.jpg">
+                <img src="esc-19.jpg">
             </div>
         </div>
     </main>
@@ -253,17 +263,20 @@
             <div class="social-media">
     <a href="https://facebook.com" target="_blank" class="social-icon">
         <i class="fab fa-facebook"></i>
+        <span class="social-text">esc-lic-benito juarez garcia oficialk</span>
+
     </a>
     
     <a href="https://youtube.com" target="_blank" class="social-icon">
         <i class="fab fa-youtube"></i>
+        <span class="social-text">esc-lic-benito juarez garcia oficialk</span>
     </a>
 </div>
         </div>
     </div>
 
     <div class="footer-bottom">
-        <p>&copy; 2026 Escuela Primaria Federal Matutina "Lic. Benito Juárez García". Todos los derechos reservados.</p>
+        <p>&copy; 2026 Escuela Primaria "Lic. Benito Juárez García". Todos los derechos reservados.</p>
         <p>Fundada el 02 de Septiembre de 1987.</p>
     </div>
 </footer>
